@@ -2,22 +2,21 @@ import 'dotenv/config';
 
 export default {
   expo: {
-    name: 'Expo Firebase Starter',
-    slug: 'expo-firebase',
-    privacy: 'public',
-    platforms: ['ios', 'android'],
-    version: '0.15.0',
-    orientation: 'portrait',
-    icon: './assets/flame.png',
+    name: "more Pay",
+    slug: "more-pay",
+    privacy: "public",
+    platforms: ["ios", "android"],
+    version: "0.15.0",
+    orientation: "portrait",
+    icon: "./assets/icon.png",
     splash: {
-      image: './assets/splash.png',
-      resizeMode: 'cover',
-      backgroundColor: '#F57C00'
+      image: "./assets/splash.png",
+      resizeMode: "cover",  
     },
     updates: {
       fallbackToCacheTimeout: 0
     },
-    assetBundlePatterns: ['**/*'],
+    assetBundlePatterns: ["**/*"],
     ios: {
       supportsTablet: true
     },
