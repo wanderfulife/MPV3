@@ -50,6 +50,4 @@ const styles = StyleSheet.create({
   }
 });
 
-const logo = "text-green-400 font-bold text-2xl";
-const safeArea = "flex-1";
 
