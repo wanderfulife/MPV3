@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
   },
   swiper: {
     flex: 1,
-    marginTop: -8
+    marginTop: -2
   },
   cardShadow: {
     shadowColor: "#000",

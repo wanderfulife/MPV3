@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "700",
     color: Colors.green,
-    paddingTop: 20
+    padding: 20
   },
   button: {
     width: "100%",

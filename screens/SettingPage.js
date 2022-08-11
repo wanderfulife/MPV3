@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
     paddingLeft: 6,
     textAlign: "center",
     fontSize: 20,
-    fontWeight: "600"
+    fontWeight: "600",
+    margin: 10
   },
   touchableLogout: {
     width: "100%",
@@ -81,7 +82,8 @@ const styles = StyleSheet.create({
     paddingLeft: 7,
     textAlign: "center",
     fontSize: 20,
-    fontWeight: "600"
+    fontWeight: "600",
+    margin: 10
   }
 });
 

@@ -34,7 +34,7 @@ export const SignupScreen = ({ navigation }) => {
       <KeyboardAwareScrollView enableOnAndroid={true}>
         {/* LogoContainer: consits app logo and screen title */}
         <View style={styles.titleContainer}>
-          <Text style={styles.screenTitle}>Create a new account!</Text>
+          <Text style={styles.screenTitle}>Welcome !</Text>
         </View>
         {/* Formik Wrapper */}
         <Formik
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "700",
     color: Colors.green,
-    paddingTop: 20
+    padding: 20
   },
   button: {
     width: "100%",

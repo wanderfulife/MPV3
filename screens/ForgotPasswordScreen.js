@@ -24,7 +24,7 @@ export const ForgotPasswordScreen = ({ navigation }) => {
   return (
     <View isSafe style={styles.container}>
       <View style={styles.innercontainer}>
-        <Text style={styles.screenTitle}>Reset your password</Text>
+        <Text style={styles.screenTitle}>More Pay</Text>
       </View>
       <Formik
         initialValues={{ email: "" }}
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: '700',
     color: Colors.green,
-    paddingTop: 20
+    padding: 20
   },
   button: {
     width: '100%',
