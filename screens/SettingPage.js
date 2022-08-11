@@ -22,13 +22,13 @@ const SettingPage = ({ navigation }) => {
           style={styles.touchableInfo}
           onPress={() => navigation.navigate("Informations")}
         >
-          <Ionicons name="person-circle-outline" size={26} color="#4ade80" />
+          <Ionicons name="person-circle-outline" size={30} color="#4ade80" />
           <Text style={styles.textInfo}>Informations</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.touchableView}>
         <TouchableOpacity style={styles.touchableLogout} onPress={handleLogout}>
-          <AntDesign name="logout" size={22} color="#4f46e5" />
+          <AntDesign name="logout" size={26} color="#4f46e5" />
           <Text
             style={styles.textLogout}
           >
@@ -55,15 +55,15 @@ const styles = StyleSheet.create({
     padding: 4,
     paddingTop: 5,
     borderBottomWidth: 1,
-    borderColor: Colors.purple,
+    borderColor: Colors.mediumGray,
     borderRadius: 12
   },
   textInfo: {
     color: Colors.mediumGray,
     paddingLeft: 6,
     textAlign: "center",
-    fontSize: 16,
-    fontWeight: "500"
+    fontSize: 20,
+    fontWeight: "600"
   },
   touchableLogout: {
     width: "100%",
@@ -73,15 +73,15 @@ const styles = StyleSheet.create({
     paddingLeft: 6,
     paddingBottom: 8,
     borderBottomWidth: 1,
-    borderColor: Colors.purple,
+    borderColor: Colors.mediumGray,
     borderRadius: 12
   },
   textLogout: {
     color: Colors.mediumGray,
     paddingLeft: 7,
     textAlign: "center",
-    fontSize: 16,
-    fontWeight: "500"
+    fontSize: 20,
+    fontWeight: "600"
   }
 });
 
