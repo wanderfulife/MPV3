@@ -23,13 +23,13 @@ export const ForgotPasswordScreen = ({ navigation }) => {
 
   return (
     <View isSafe style={styles.container}>
-      <View style={styles.innerContainer}>
+      <View style={styles.innercontainer}>
         <Text style={styles.screenTitle}>Reset your password</Text>
       </View>
       <Formik
-        initialValues={{ email: '' }}
+        initialValues={{ email: "" }}
         validationSchema={passwordResetSchema}
-        onSubmit={values => handleSendPasswordResetEmail(values)}
+        onSubmit={(values) => handleSendPasswordResetEmail(values)}
       >
         {({
           values,
@@ -42,19 +42,19 @@ export const ForgotPasswordScreen = ({ navigation }) => {
           <>
             {/* Email input field */}
             <TextInput
-              name='email'
-              leftIconName='email'
-              placeholder='Enter email'
-              autoCapitalize='none'
-              keyboardType='email-address'
-              textContentType='emailAddress'
+              name="email"
+              leftIconName="email"
+              placeholder="Enter email"
+              autoCapitalize="none"
+              keyboardType="email-address"
+              textContentType="emailAddress"
               value={values.email}
-              onChangeText={handleChange('email')}
-              onBlur={handleBlur('email')}
+              onChangeText={handleChange("email")}
+              onBlur={handleBlur("email")}
             />
             <FormErrorMessage error={errors.email} visible={touched.email} />
             {/* Display Screen Error Mesages */}
-            {errorState !== '' ? (
+            {errorState !== "" ? (
               <FormErrorMessage error={errorState} visible={true} />
             ) : null}
             {/* Password Reset Send Email  button */}
@@ -68,8 +68,8 @@ export const ForgotPasswordScreen = ({ navigation }) => {
       <Button
         style={styles.borderlessButtonContainer}
         borderless
-        title={'Go back to Login'}
-        onPress={() => navigation.navigate('Login')}
+        title={"Go back to Login"}
+        onPress={() => navigation.navigate("Login")}
       />
     </View>
   );
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   screenTitle: {
     fontSize: 32,
     fontWeight: '700',
-    color: Colors.black,
+    color: Colors.green,
     paddingTop: 20
   },
   button: {
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 8,
-    backgroundColor: Colors.orange,
+    backgroundColor: Colors.purple,
     padding: 10,
     borderRadius: 8
   },

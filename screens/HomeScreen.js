@@ -1,8 +1,10 @@
 import React from 'react';
-import { View, StyleSheet, Button } from 'react-native';
+import { StyleSheet, View, Button } from 'react-native';
 import { signOut } from 'firebase/auth';
+import {  } from "../components";
 
-import { auth } from '../config';
+
+import { auth, Colors } from '../config';
 
 export const HomeScreen = () => {
   const handleLogout = () => {
@@ -10,13 +12,20 @@ export const HomeScreen = () => {
   };
   return (
     <View style={styles.container}>
-      <Button title='Sign Out' onPress={handleLogout} />
+      <Button
+        style={styles.button}
+        title="Sign Out"
+        onPress={handleLogout}
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
-  }
+    flex: 1,
+    justifyContent: 'center',
+  },
+  
+
 });
