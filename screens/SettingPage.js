@@ -3,13 +3,10 @@ import React, { useLayoutEffect } from "react";
 import { Ionicons, AntDesign } from "@expo/vector-icons";
 import { signOut } from "firebase/auth";
 import { Colors, auth } from "../config";
+import Header from "../chatComponents/Header";
 
 const SettingPage = ({ navigation }) => {
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: true
-    });
-  });
+
 
   const handleLogout = () => {
     signOut(auth).catch((error) => console.log("Error logging out: ", error));
@@ -17,23 +14,20 @@ const SettingPage = ({ navigation }) => {
 
   return (
     <SafeAreaView>
+      <Header title="Home" />
       <View style={styles.touchableView}>
         <TouchableOpacity
           style={styles.touchableInfo}
           onPress={() => navigation.navigate("Informations")}
         >
-          <Ionicons name="person-circle-outline" size={30} color="#4ade80" />
+          <Ionicons name="person-circle-outline" size={30} color="#4f46e5" />
           <Text style={styles.textInfo}>Informations</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.touchableView}>
         <TouchableOpacity style={styles.touchableLogout} onPress={handleLogout}>
           <AntDesign name="logout" size={26} color="#4f46e5" />
-          <Text
-            style={styles.textLogout}
-          >
-            Logout
-          </Text>
+          <Text style={styles.textLogout}>Logout</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
