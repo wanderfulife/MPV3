@@ -71,7 +71,9 @@ export const ForgotPasswordScreen = ({ navigation }) => {
         title={"Go back to Login"}
         onPress={() => navigation.navigate("Login")}
       />
+        <View style={styles.border}></View>
     </View>
+
   );
 };
 
@@ -108,5 +110,11 @@ const styles = StyleSheet.create({
     marginTop: 16,
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  border : {
+    borderColor: Colors.mediumGray,
+    borderBottomWidth: 1,
+    paddingTop: 20,
+    marginHorizontal: 20
   }
 });

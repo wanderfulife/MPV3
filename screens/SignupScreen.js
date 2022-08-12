@@ -120,9 +120,11 @@ export const SignupScreen = ({ navigation }) => {
         <Button
           style={styles.borderlessButtonContainer}
           borderless
-          title={"Already have an account?"}
+          title={"Already have an account"}
           onPress={() => navigation.navigate("Login")}
         />
+        <View style={styles.border}></View>
+
       </KeyboardAwareScrollView>
     </View>
   );
@@ -135,22 +137,24 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12
   },
   titleContainer: {
-    alignItems: "center"
+    alignItems: "center",
+
   },
   screenTitle: {
     fontSize: 32,
     fontWeight: "700",
     color: Colors.green,
-    padding: 20
+    padding: 20,
+    
   },
-  button: {
+ button: {
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
     marginTop: 8,
-    backgroundColor: Colors.purple,
+    backgroundColor: Colors.green,
     padding: 10,
-    borderRadius: 8
+    borderRadius: 8,
   },
   buttonText: {
     fontSize: 20,
@@ -161,5 +165,11 @@ const styles = StyleSheet.create({
     marginTop: 16,
     alignItems: "center",
     justifyContent: "center"
+  },
+  border : {
+    borderColor: Colors.mediumGray,
+    borderBottomWidth: 1,
+    paddingTop: 20,
+    marginHorizontal: 20
   }
 });

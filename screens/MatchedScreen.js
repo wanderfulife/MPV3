@@ -1,6 +1,9 @@
 import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
 import React from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import {  Colors } from '../config';
+
+
 
 const MatchedScreen = () => {
   const navigation = useNavigation();
@@ -9,32 +12,33 @@ const MatchedScreen = () => {
   const { loggedInProfile, userSwiped } = params;
   return (
     <View style={styles.screnTransparent}>
-      <View className="justify-center px-10 pt-20">
-        <Text className="text-white text-2xl text-center mt-5 font-extrabold">
-          New Match !!
+      <View style={styles.container} >
+        <Text style={styles.textMatch}>
+          New Match !
         </Text>
-        <Text className="text-white text-bold text-center m-5">
-          you and {userSwiped.displayName} want to work together
+        <Text style={styles.text} >
+         {userSwiped.displayName} and you want to work together.
         </Text>
       </View>
-      <View className="flex-row justify-evenly mt-5 ">
-        <Image
-          className="h-32 w-32 rounded-full"
+      <View style={styles.imageContainer} >
+       {userSwiped.photoURL && <Image
+        style={styles.image}
           source={{ uri: loggedInProfile.photoURL }}
-        />
-        <Image
-          className="h-32 w-32 rounded-full"
+        />}
+        {userSwiped.photoURL && <Image
+         style={styles.image}
+         
           source={{ uri: userSwiped.photoURL }}
-        />
+        />}
       </View>
       <TouchableOpacity
-        className="bg-white m-5 px-10 py-8 rounded-full mt-20"
+        style={styles.touchable}
         onPress={() => {
           navigation.goBack();
           navigation.navigate("Chat");
         }}
       >
-        <Text className="text-center">Send a Message</Text>
+        <Text style={styles.textBottom}>Send a Message</Text>
       </TouchableOpacity>
     </View>
   );
@@ -44,9 +48,52 @@ export default MatchedScreen;
 
 const styles = StyleSheet.create({
   screnTransparent: {
-    height: "100%",
-    backgroundColor: "#4f46e5",
+    backgroundColor: Colors.purple,
     paddingTop: "20%",
-    opacity: 0.89
+    opacity: 0.96,
+    height: '100%'
+  },
+  container: {
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    paddingVertical: 20,
+  },
+  textMatch: {
+color: Colors.green,
+  fontSize: 55,
+    textAlign: 'center',
+    fontWeight: '700'
+  },
+  text: {
+    color: 'white',
+    fontSize: 25,
+    textAlign: 'center',
+    fontWeight: '500',
+    margin: 10
+  },
+    textBottom: {
+    textAlign:'center',
+    fontWeight: '700',
+    color: Colors.green
+  },
+  imageContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    marginTop: 10
+  },
+  image: {
+      height: 150,
+      width: 150,
+      borderRadius: 100
+  },
+  touchable: {
+    backgroundColor: 'white',
+    margin: 10,
+    marginTop: 40,
+    paddingVertical:30,
+    paddingHorizontal: 7,
+    borderRadius: 100,
+    alignItems: 'center'
   }
+
 });

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState, useLayoutEffect } from "react";
 import {
   StyleSheet,
   View,
@@ -32,7 +32,15 @@ export const HomeScreen = ({ navigation }) => {
   const [search, setSearch] = useState("");
   const [loaded, setLoaded] = useState(false);
 
-
+    useLayoutEffect(
+    () =>
+      onSnapshot(doc(db, "users", user.uid), (snapshot) => {
+        if (!snapshot.exists()) {
+          navigation.navigate("Information");
+        }
+      }),
+    []
+  );
 
   useEffect(
     () =>
@@ -142,7 +150,7 @@ export const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
+        <TouchableOpacity onPress={() => navigation.navigate("SettingPage")}>
           <Ionicons name="ios-settings-outline" size={32} color="#4ade80" />
         </TouchableOpacity>
 

@@ -122,12 +122,15 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     borderTopWidth: 1,
+    marginTop:10,
+    borderColor: Colors.green,
+    borderRadius: 15,
     paddingHorizontal: 20,
     paddingVertical: 10,
   },
   inputText: {
     fontSize: 20
-  }
+  },
 });
 
 export default MessageScreen;

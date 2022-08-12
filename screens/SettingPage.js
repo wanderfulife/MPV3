@@ -18,7 +18,7 @@ const SettingPage = ({ navigation }) => {
       <View style={styles.touchableView}>
         <TouchableOpacity
           style={styles.touchableInfo}
-          onPress={() => navigation.navigate("Informations")}
+          onPress={() => navigation.navigate("Settings")}
         >
           <Ionicons name="person-circle-outline" size={30} color="#4f46e5" />
           <Text style={styles.textInfo}>Informations</Text>

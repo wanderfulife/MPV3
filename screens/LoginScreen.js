@@ -97,7 +97,7 @@ export const LoginScreen = ({ navigation }) => {
             <Button
               style={styles.borderlessButtonContainer}
               borderless
-              title={"Create a new account?"}
+              title={"Create a new account"}
               onPress={() => navigation.navigate("Signup")}
             />
             <Button
@@ -106,7 +106,7 @@ export const LoginScreen = ({ navigation }) => {
               title={"Forgot Password"}
               onPress={() => navigation.navigate("ForgotPassword")}
             />
-      
+        <View style={styles.border}></View>
         </KeyboardAwareScrollView>
       </View>
 
@@ -119,7 +119,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.white,
-    paddingHorizontal: 12
+    paddingHorizontal: 12,
+    
   },
   titleContainer: {
     alignItems: "center"
@@ -136,9 +137,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 8,
-    backgroundColor: Colors.purple,
+    backgroundColor: Colors.green,
     padding: 10,
-    borderRadius: 8
+    borderRadius: 8,
   },
   buttonText: {
     fontSize: 20,
@@ -149,6 +150,12 @@ const styles = StyleSheet.create({
     marginTop: 16,
     alignItems: "center",
     justifyContent: "center",
-    color: Colors.green
+    color: Colors.green,
+  },
+  border : {
+    borderColor: Colors.mediumGray,
+    borderBottomWidth: 1,
+    paddingTop: 20,
+    marginHorizontal: 20
   }
 });
