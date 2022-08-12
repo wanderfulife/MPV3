@@ -83,6 +83,7 @@ export const HomeScreen = ({ navigation }) => {
     };
 
     fetchCards();
+    console.log("refreshed")
     return () => (cancel = false);
   }, [search]);
 

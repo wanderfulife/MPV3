@@ -54,13 +54,13 @@ const MessageScreen = () => {
   );
 
   const sendMessage = () => {
-    addDoc(collection(db, "matches", matchDetails.id, "messages"), {
+   if (input !== "") { addDoc(collection(db, "matches", matchDetails.id, "messages"), {
       timestamp: serverTimestamp(),
       userId: user.uid,
       displayName: user.displayName,
       photoURL: matchDetails.users[user.uid].photoURL,
       message: input
-    });
+    })};
 
     setInput("");
   };
