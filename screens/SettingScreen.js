@@ -115,7 +115,7 @@ const InformationScreen = () => {
                     <MaterialCommunityIcons
                       name="camera-plus-outline"
                       size={24}
-                      color="#4f46e5"
+                      color={"#4f46e5"}
                     />
                   ) : (
                     <ActivityIndicator size='small' color={Colors.green} />
@@ -150,7 +150,7 @@ const InformationScreen = () => {
               </Text>
             </View>
 
-            <View style={styles.bottomButton} className="flex-row justify-around mt-4">
+            <View style={styles.bottomButton} >
               <Button
               style={lookingForJob ? styles.jobButton : styles.choiceButtonDisabled}
                 onPress={() => {
@@ -206,17 +206,16 @@ const styles = StyleSheet.create({
     borderRadius: 100
    },
    touchableImage: {
-    borderColor: Colors.purple,
+    borderColor: Colors.green,
     padding: 10,
     borderRadius: 100,
-    borderWidth: 1
+    borderWidth: 2
    },
    choicePicker: {
     alignItems: 'center'
    },
    textPicker : {
     fontSize: 20,
-    margin: 10, 
     fontWeight: '700',
     color: Colors.purple
    },
@@ -225,29 +224,35 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 5
    },
-    jobButton: {
-    marginTop:10,
+ 
+  choiceButtonDisabled: {
     backgroundColor: Colors.green,
-    padding: 20,
-    borderRadius: 100,
+    marginTop:10,
+    padding: 15,
+    borderRadius: 10,
     marginHorizontal: 20,
     width: 100
   },
-  choiceButtonDisabled: {
-    backgroundColor: 'lightgray',
+    jobButton: {
+    backgroundColor: Colors.green,
     marginTop:10,
-    padding: 20,
-    borderRadius: 100,
+    padding: 15,
+    borderRadius: 10,
     marginHorizontal: 20,
-    width: 100
+    width: 100,
+    borderWidth:2,
+    borderColor: Colors.purple
   },
     staffButton: {
+    backgroundColor: Colors.green,
     marginTop:10,
-    backgroundColor: Colors.purple,
-    padding: 20,
-    borderRadius: 100,
+    padding: 15,
+    borderRadius: 10,
     marginHorizontal: 20,
-    width: 100
+    width: 100,
+    width: 100,
+    borderWidth:2,
+    borderColor: Colors.purple
   },
   textJobButton: {
     textAlign: 'center',
@@ -259,14 +264,14 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.purple,
     width: 200,
     marginTop: 25,
-    borderRadius: 100,
+    borderRadius: 10,
     padding: 15,
     alignItems: 'center'
   },
    updateButtonDisabled: {
     backgroundColor: 'lightgray',
     width: 200,
-    borderRadius: 100,
+    borderRadius: 10,
     marginTop: 25,
     padding: 15,
     alignItems: 'center'
