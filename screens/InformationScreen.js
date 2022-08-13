@@ -186,94 +186,97 @@ const InformationScreen = () => {
 };
 
 const styles = StyleSheet.create({
- 
   safe: {
-    flex: 1,
+    flex: 1
   },
   container: {
     padding: 5,
-    alignItems: 'center'
-   },
+    alignItems: "center"
+  },
 
-   imageView: {
-
-    alignItems: 'center',
-    padding: 20
-   },
-   image : {
+  imageView: {
+    alignItems: "center",
+    paddingBottom: 10
+  },
+  image: {
     height: 40,
     width: 40,
     borderRadius: 100
-   },
-   touchableImage: {
-    borderColor: Colors.purple,
+  },
+  touchableImage: {
+    borderColor: Colors.green,
     padding: 10,
     borderRadius: 100,
-    borderWidth: 1
-   },
-   choicePicker: {
-    alignItems: 'center'
-   },
-   textPicker : {
+    borderWidth: 2
+  },
+  choicePicker: {
+    alignItems: "center"
+  },
+  textPicker: {
     fontSize: 20,
-    margin: 10, 
-    fontWeight: '700',
+    fontWeight: "700",
     color: Colors.purple
-   },
-   bottomButton: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+  },
+  bottomButton: {
+    flexDirection: "row",
+    justifyContent: "center",
     marginTop: 5
-   },
-    jobButton: {
-    marginTop:10,
-    backgroundColor: Colors.green,
-    padding: 20,
-    borderRadius: 100,
-    marginHorizontal: 20,
-    width: 100
   },
+
   choiceButtonDisabled: {
-    backgroundColor: 'lightgray',
-    marginTop:10,
-    padding: 20,
-    borderRadius: 100,
+    backgroundColor: Colors.green,
+    marginTop: 10,
+    padding: 15,
+    borderRadius: 10,
     marginHorizontal: 20,
     width: 100
   },
-    staffButton: {
-    marginTop:10,
-    backgroundColor: Colors.purple,
-    padding: 20,
-    borderRadius: 100,
+  jobButton: {
+    backgroundColor: Colors.green,
+    marginTop: 10,
+    padding: 15,
+    borderRadius: 10,
     marginHorizontal: 20,
-    width: 100
+    width: 100,
+    borderWidth: 2,
+    borderColor: Colors.purple
+  },
+  staffButton: {
+    backgroundColor: Colors.green,
+    marginTop: 10,
+    padding: 15,
+    borderRadius: 10,
+    marginHorizontal: 20,
+    width: 100,
+    width: 100,
+    borderWidth: 2,
+    borderColor: Colors.purple
   },
   textJobButton: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 20,
-    color: 'white',
-    fontWeight: '600'
+    color: "white",
+    fontWeight: "600"
   },
   updateButton: {
     backgroundColor: Colors.purple,
     width: 200,
     marginTop: 25,
-    borderRadius: 100,
+    borderRadius: 10,
     padding: 15,
-    alignItems: 'center'
+    alignItems: "center"
   },
-   updateButtonDisabled: {
-    backgroundColor: 'lightgray',
+  updateButtonDisabled: {
+    backgroundColor: "lightgray",
     width: 200,
-    borderRadius: 100,
+    borderRadius: 10,
     marginTop: 25,
     padding: 15,
-    alignItems: 'center'
+    alignItems: "center"
   },
   textUpdate: {
-    color: 'white',
-    fontWeight: '600',
+    color: "white",
+    fontWeight: "600",
     fontSize: 20
   }
 });

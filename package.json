@@ -31,6 +31,9 @@
     "react-native-web": "0.17.7",
     "yup": "0.27.0"
   },
+    "resolutions": {
+    "expo-modules-autolinking": "~0.8.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.9.0",

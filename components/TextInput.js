@@ -22,8 +22,8 @@ export const TextInput = ({
         padding: 12,
         marginVertical: 12,
         width,
-        borderWidth: 1,
-        borderColor: Colors.mediumGray
+        borderWidth: 2,
+        borderColor: Colors.green
       }}
     >
       {leftIconName ? (
@@ -39,7 +39,8 @@ export const TextInput = ({
           flex: 1,
           width: '100%',
           fontSize: 18,
-          color: Colors.black
+          fontWeight: '500',
+          color: Colors.mediumGray
         }}
         placeholderTextColor={Colors.mediumGray}
         {...otherProps}

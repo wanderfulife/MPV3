@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useState, useContext } from "react";
 import {
   View,
   Text,
-  SafeAreaView, 
+  SafeAreaView,
   TouchableOpacity,
   Image,
   TouchableWithoutFeedback,
@@ -10,7 +10,7 @@ import {
   StyleSheet,
   ActivityIndicator
 } from "react-native";
-import {TextInput, Button, FormErrorMessage } from "../components";
+import { TextInput, Button, FormErrorMessage } from "../components";
 import {
   db,
   storage,
@@ -22,13 +22,10 @@ import {
 import * as ImagePicker from "expo-image-picker";
 import { useNavigation } from "@react-navigation/native";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
-import { MaterialCommunityIcons } from "@expo/vector-icons"; 
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { AuthenticatedUserContext } from "../providers";
 import Header from "../chatComponents/Header";
-
-
-
 
 const InformationScreen = () => {
   const [imageUrl, setImageUrl] = useState(null);
@@ -36,18 +33,12 @@ const InformationScreen = () => {
   const [age, setAge] = useState(null);
   const [city, setCity] = useState(null);
   const [occupation, setOccupation] = useState(null);
-  const [lookingForJob, setLookingForJob] = useState(true)
+  const [lookingForJob, setLookingForJob] = useState(true);
   const [loading, setLoading] = useState(false);
   const navigation = useNavigation();
-    const { user } = useContext(AuthenticatedUserContext);
+  const { user } = useContext(AuthenticatedUserContext);
 
-  
-
-  const incompleteForm =
-    !name || !city || !occupation || !age || !imageUrl ;
-  
-
-
+  const incompleteForm = !name || !city || !occupation || !age || !imageUrl;
 
   const updateUserProfile = () => {
     setDoc(doc(db, "users", user.uid), {
@@ -61,12 +52,12 @@ const InformationScreen = () => {
       timestamp: serverTimestamp()
     })
       .then(() => {
-          console.log("User created in Firestore Database");
+        console.log("User created in Firestore Database");
 
         navigation.navigate("Home");
       })
-      .catch((error) => alert(error.message));
-  }
+      .catch(error => alert(error.message));
+  };
 
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
@@ -84,7 +75,7 @@ const InformationScreen = () => {
       const bytes = await img.blob();
       await uploadBytes(reference, bytes);
       await getDownloadURL(reference)
-        .then((x) => {
+        .then(x => {
           setImageUrl(x);
         })
         .finally(() => {
@@ -96,169 +87,152 @@ const InformationScreen = () => {
 
   return (
     <SafeAreaView style={styles.safe}>
-      <Header  />
-      <View style={styles.container} >
+      <Header />
+      <View style={styles.container}>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View>
-            <View style={styles.imageView} >
-              {imageUrl ? (
-                <Image
-                  style={styles.image}
-                  source={{ uri: imageUrl }}
-                />
-              ) : (
-                <TouchableOpacity
-                style={styles.touchableImage}
-                  onPress={pickImage}
-                >
-                  {!loading ? (
-                    <MaterialCommunityIcons
-                      name="camera-plus-outline"
-                      size={24}
-                      color={"#4f46e5"}
-                    />
-                  ) : (
-                    <ActivityIndicator size='small' color={Colors.green} />
-                  )}
-                </TouchableOpacity>
-              )}
+            <View style={styles.imageView}>
+              {imageUrl
+                ? <Image style={styles.image} source={{ uri: imageUrl }} />
+                : <TouchableOpacity
+                    style={styles.touchableImage}
+                    onPress={pickImage}
+                  >
+                    {!loading
+                      ? <MaterialCommunityIcons
+                          name="camera-plus-outline"
+                          size={24}
+                          color={"#4f46e5"}
+                        />
+                      : <ActivityIndicator size="small" color={Colors.green} />}
+                  </TouchableOpacity>}
             </View>
-            <TextInput
-              value={name}
-              onChangeText={setName}
-              placeholder="Name"
-            ></TextInput>
-            <TextInput
-              value={age}
-              onChangeText={setAge}
-              placeholder="Age"
-            ></TextInput>
-            <TextInput
-              value={city}
-              onChangeText={setCity}
-              placeholder="City"
-            ></TextInput>
+            <TextInput value={name} onChangeText={setName} placeholder="Name" />
+            <TextInput value={age} onChangeText={setAge} placeholder="Age" />
+            <TextInput value={city} onChangeText={setCity} placeholder="City" />
             <TextInput
               value={occupation}
               onChangeText={setOccupation}
               placeholder="Occupation"
-            ></TextInput>
+            />
 
             <View style={styles.choicePicker}>
-              <Text style={styles.textPicker} >
-                Looking for :
-              </Text>
+              <Text style={styles.textPicker}>Looking for :</Text>
             </View>
 
-            <View style={styles.bottomButton} >
+            <View style={styles.bottomButton}>
               <Button
-              style={lookingForJob ? styles.jobButton : styles.choiceButtonDisabled}
+                style={
+                  lookingForJob ? styles.jobButton : styles.choiceButtonDisabled
+                }
                 onPress={() => {
                   setLookingForJob(true);
                 }}
               >
-                 <Text style={styles.textJobButton} >Job</Text>
+                <Text style={styles.textJobButton}>Job</Text>
               </Button>
               <Button
-              style={lookingForJob ? styles.choiceButtonDisabled : styles.staffButton}
+                style={
+                  lookingForJob
+                    ? styles.choiceButtonDisabled
+                    : styles.staffButton
+                }
                 onPress={() => {
                   setLookingForJob(false);
                 }}
               >
-                <Text style={styles.textJobButton} >Staff</Text>
+                <Text style={styles.textJobButton}>Staff</Text>
               </Button>
             </View>
           </View>
         </TouchableWithoutFeedback>
-        
-          <TouchableOpacity
-             disabled={incompleteForm}
-            style={incompleteForm ? styles.updateButtonDisabled : styles.updateButton}
-             onPress={updateUserProfile}
-          >
-            <Text style={styles.textUpdate}>
-              Update Profile
-            </Text>
-          </TouchableOpacity>
-       
+
+        <TouchableOpacity
+          disabled={incompleteForm}
+          style={
+            incompleteForm ? styles.updateButtonDisabled : styles.updateButton
+          }
+          onPress={updateUserProfile}
+        >
+          <Text style={styles.textUpdate}>Update Profile</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
- 
   safe: {
-    flex: 1,
+    flex: 1
   },
   container: {
     padding: 5,
-    alignItems: 'center'
-   },
+    alignItems: "center"
+  },
 
-   imageView: {
-    alignItems: 'center',
+  imageView: {
+    alignItems: "center",
     paddingBottom: 10
-   },
-   image : {
+  },
+  image: {
     height: 40,
     width: 40,
     borderRadius: 100
-   },
-   touchableImage: {
+  },
+  touchableImage: {
     borderColor: Colors.green,
     padding: 10,
     borderRadius: 100,
     borderWidth: 2
-   },
-   choicePicker: {
-    alignItems: 'center'
-   },
-   textPicker : {
+  },
+  choicePicker: {
+    alignItems: "center"
+  },
+  textPicker: {
     fontSize: 20,
-    fontWeight: '700',
+    fontWeight: "700",
     color: Colors.purple
-   },
-   bottomButton: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+  },
+  bottomButton: {
+    flexDirection: "row",
+    justifyContent: "center",
     marginTop: 5
-   },
- 
+  },
+
   choiceButtonDisabled: {
     backgroundColor: Colors.green,
-    marginTop:10,
+    marginTop: 10,
     padding: 15,
     borderRadius: 10,
     marginHorizontal: 20,
     width: 100
   },
-    jobButton: {
+  jobButton: {
     backgroundColor: Colors.green,
-    marginTop:10,
+    marginTop: 10,
     padding: 15,
     borderRadius: 10,
     marginHorizontal: 20,
     width: 100,
-    borderWidth:2,
+    borderWidth: 2,
     borderColor: Colors.purple
   },
-    staffButton: {
+  staffButton: {
     backgroundColor: Colors.green,
-    marginTop:10,
+    marginTop: 10,
     padding: 15,
     borderRadius: 10,
     marginHorizontal: 20,
     width: 100,
     width: 100,
-    borderWidth:2,
+    borderWidth: 2,
     borderColor: Colors.purple
   },
   textJobButton: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 20,
-    color: 'white',
-    fontWeight: '600'
+    color: "white",
+    fontWeight: "600"
   },
   updateButton: {
     backgroundColor: Colors.purple,
@@ -266,22 +240,20 @@ const styles = StyleSheet.create({
     marginTop: 25,
     borderRadius: 10,
     padding: 15,
-    alignItems: 'center'
+    alignItems: "center"
   },
-   updateButtonDisabled: {
-    backgroundColor: 'lightgray',
+  updateButtonDisabled: {
+    backgroundColor: "lightgray",
     width: 200,
     borderRadius: 10,
     marginTop: 25,
     padding: 15,
-    alignItems: 'center'
+    alignItems: "center"
   },
   textUpdate: {
-    color: 'white',
-    fontWeight: '600',
+    color: "white",
+    fontWeight: "600",
     fontSize: 20
   }
 });
 export default InformationScreen;
-
-
