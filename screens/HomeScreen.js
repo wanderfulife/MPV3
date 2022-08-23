@@ -69,22 +69,21 @@ export const HomeScreen = ({ navigation }) => {
 
       onSnapshot(
         query(
-          collection(db, "users"),
-          where("id", "not-in", [...passedUserIds, ...swipedUserIds])
-        ),
+          collection(db, "users")),
         (snapshot) => {
           if (cancel) {
-            setProfiles(
-              snapshot.docs
+            setProfiles(snapshot.docs
                 .filter(
-                  (doc) =>
-                    doc.data().lookingForJob !== search && doc.id !== user.uid
+                  doc =>
+                    doc.data().lookingForJob !== search &&
+                    doc.id !== user.uid
                 )
-                .map((doc) => ({
+                .filter(doc => !swipedUserIds.includes(doc.id))
+                .filter(doc => !passedUserIds.includes(doc.id))
+                .map(doc => ({
                   id: doc.id,
                   ...doc.data()
-                }))
-            );
+                })));
           }
         }
       );
